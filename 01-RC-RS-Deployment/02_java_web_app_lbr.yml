@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-   name: ashokitns
+   name: prashanth
 ---
 apiVersion: v1
 kind: Pod
@@ -10,11 +10,11 @@ metadata:
   name: javawebapppod
   labels:
     app: javawebapp #very imp
-  namespace: ashokitns
+  namespace: prashanth
 spec:
   containers:
   - name: javaweappcontainer
-    image: ashokit/javawebapp
+    image: prashanth0108/taxi
     ports:
       - containerPort: 8080
 ---
@@ -22,9 +22,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: javawebappsvc
-  namespace: ashokitns
+  namespace: prashanth
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: javawebapp  #POD label
   ports:
